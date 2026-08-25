@@ -6,20 +6,32 @@ use logos::Logos;
 #[logos(skip r"[ \t\r\n]+")] // Skip whitespace
 pub enum RawToken {
     // ── Chain Keywords ──────────────────────────────────────
-    #[token("where")]     Where,
-    #[token("give")]      Give,
-    #[token("sort")]      Sort,
-    #[token("cup")]       Cup,
-    #[token("blend")]     Blend,
-    #[token("mix")]       Mix,
-    #[token("pour")]      Pour,
-    #[token("refill")]    Refill,
-    #[token("spill")]     Spill,
+    #[token("where")]
+    Where,
+    #[token("give")]
+    Give,
+    #[token("sort")]
+    Sort,
+    #[token("cup")]
+    Cup,
+    #[token("blend")]
+    Blend,
+    #[token("mix")]
+    Mix,
+    #[token("pour")]
+    Pour,
+    #[token("refill")]
+    Refill,
+    #[token("spill")]
+    Spill,
 
     // ── Top Level ───────────────────────────────────────────
-    #[token("shot")]      Shot,
-    #[token("grind")]     Grind,
-    #[token("menu")]      Menu,
+    #[token("shot")]
+    Shot,
+    #[token("grind")]
+    Grind,
+    #[token("menu")]
+    Menu,
 
     // ── Schema ──────────────────────────────────────────────
     // ON — accept both lowercase and uppercase
@@ -27,49 +39,80 @@ pub enum RawToken {
     #[token("ON")]
     On,
 
-    #[token("as")]        As,
-    #[token("ASC")]       Asc,
-    #[token("DESC")]      Desc,
-    #[token("FLEX")]      Flex,
-    #[token("EXISTS")]    Exists,
-    #[token("NOT")]       Not,
-    #[token("NULL")]      Null,
-    #[token("PRIMARY")]   Primary,
-    #[token("UNIQUE")]    Unique,
+    #[token("as")]
+    As,
+    #[token("ASC")]
+    Asc,
+    #[token("DESC")]
+    Desc,
+    #[token("FLEX")]
+    Flex,
+    #[token("EXISTS")]
+    Exists,
+    #[token("NOT")]
+    Not,
+    #[token("NULL")]
+    Null,
+    #[token("PRIMARY")]
+    Primary,
+    #[token("UNIQUE")]
+    Unique,
 
     // ── Data Types ──────────────────────────────────────────
-    #[token("UUID")]      TyUuid,
-    #[token("TEXT")]      TyText,
+    #[token("UUID")]
+    TyUuid,
+    #[token("TEXT")]
+    TyText,
     // INT and INTEGER both accepted
     #[token("INT")]
     #[token("INTEGER")]
     TyInt,
-    #[token("FLOAT")]     TyFloat,
-    #[token("BOOL")]      TyBool,
-    #[token("DATETIME")]  TyDatetime,
-    #[token("GEOPOINT")]  TyGeopoint,
-    #[token("VECTOR")]    TyVector,
+    #[token("FLOAT")]
+    TyFloat,
+    #[token("BOOL")]
+    TyBool,
+    #[token("DATETIME")]
+    TyDatetime,
+    #[token("GEOPOINT")]
+    TyGeopoint,
+    #[token("VECTOR")]
+    TyVector,
 
     // ── Built-in Functions ──────────────────────────────────
-    #[token("uuid")]      FnUuid,
-    #[token("now")]       FnNow,
-    #[token("today")]     FnToday,
-    #[token("COUNT")]     FnCount,
-    #[token("SUM")]       FnSum,
-    #[token("AVG")]       FnAvg,
-    #[token("MAX")]       FnMax,
-    #[token("MIN")]       FnMin,
+    #[token("uuid")]
+    FnUuid,
+    #[token("now")]
+    FnNow,
+    #[token("today")]
+    FnToday,
+    #[token("COUNT")]
+    FnCount,
+    #[token("SUM")]
+    FnSum,
+    #[token("AVG")]
+    FnAvg,
+    #[token("MAX")]
+    FnMax,
+    #[token("MIN")]
+    FnMin,
 
     // ── Special Methods ─────────────────────────────────────
-    #[token("near")]      MethodNear,
-    #[token("like")]      MethodLike,
-    #[token("has")]       MethodHas,
-    #[token("last")]      MethodLast,
-    #[token("threshold")] MethodThreshold,
+    #[token("near")]
+    MethodNear,
+    #[token("like")]
+    MethodLike,
+    #[token("has")]
+    MethodHas,
+    #[token("last")]
+    MethodLast,
+    #[token("threshold")]
+    MethodThreshold,
 
     // ── Bool Literals ───────────────────────────────────────
-    #[token("true")]      True,
-    #[token("false")]     False,
+    #[token("true")]
+    True,
+    #[token("false")]
+    False,
 
     // ── Number Literals ─────────────────────────────────────
     // Float first — more specific
@@ -96,24 +139,42 @@ pub enum RawToken {
     Identifier,
 
     // ── Symbols ─────────────────────────────────────────────
-    #[token(".")]  Dot,
-    #[token(",")]  Comma,
-    #[token(":")]  Colon,
-    #[token("(")]  LParen,
-    #[token(")")]  RParen,
-    #[token("{")]  LBrace,
-    #[token("}")]  RBrace,
-    #[token("[")]  LBracket,
-    #[token("]")]  RBracket,
-    #[token("*")]  Star,
+    #[token(".")]
+    Dot,
+    #[token(",")]
+    Comma,
+    #[token(":")]
+    Colon,
+    #[token("(")]
+    LParen,
+    #[token(")")]
+    RParen,
+    #[token("{")]
+    LBrace,
+    #[token("}")]
+    RBrace,
+    #[token("[")]
+    LBracket,
+    #[token("]")]
+    RBracket,
+    #[token("*")]
+    Star,
 
     // ── Operators (longer first) ────────────────────────────
-    #[token(">=")] Gte,
-    #[token("<=")] Lte,
-    #[token("!=")] NotEq,
-    #[token(">")]  Gt,
-    #[token("<")]  Lt,
-    #[token("=")]  Eq,
-    #[token("|")]  Pipe,
-    #[token("!")]  Bang,
+    #[token(">=")]
+    Gte,
+    #[token("<=")]
+    Lte,
+    #[token("!=")]
+    NotEq,
+    #[token(">")]
+    Gt,
+    #[token("<")]
+    Lt,
+    #[token("=")]
+    Eq,
+    #[token("|")]
+    Pipe,
+    #[token("!")]
+    Bang,
 }

@@ -2,44 +2,63 @@
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum CollectionKind {
-    Structured,    // []
-    Unstructured,  // {}
+    Structured,   // []
+    Unstructured, // {}
 }
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum TimeUnit {
-    Second, Minute, Hour, Day, Week, Month, Year,
+    Second,
+    Minute,
+    Hour,
+    Day,
+    Week,
+    Month,
+    Year,
 }
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum DistUnit {
-    Meter, Kilometer, Mile,
+    Meter,
+    Kilometer,
+    Mile,
 }
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Duration {
     pub value: f64,
-    pub unit:  TimeUnit,
+    pub unit: TimeUnit,
 }
 
 #[derive(Debug, Clone, PartialEq)]
 pub struct Distance {
     pub value: f64,
-    pub unit:  DistUnit,
+    pub unit: DistUnit,
 }
 
 #[derive(Debug, Clone, PartialEq)]
-pub enum SortDir { Asc, Desc }
+pub enum SortDir {
+    Asc,
+    Desc,
+}
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum DataType {
-    Uuid, Text, Int, Float, Bool,
-    Datetime, Geopoint, Vector,
+    Uuid,
+    Text,
+    Int,
+    Float,
+    Bool,
+    Datetime,
+    Geopoint,
+    Vector,
 }
 
 #[derive(Debug, Clone, PartialEq)]
 pub enum Constraint {
-    Primary, Unique, NotNull,
+    Primary,
+    Unique,
+    NotNull,
 }
 
 /// Full CoffeeQL Token set
@@ -65,42 +84,73 @@ pub enum Token {
     Distance(Distance),
 
     // ── Chain Keywords
-    Where, Give, Sort, Cup,
-    Blend, Mix, Pour, Refill, Spill,
+    Where,
+    Give,
+    Sort,
+    Cup,
+    Blend,
+    Mix,
+    Pour,
+    Refill,
+    Spill,
 
     // ── Top-level Keywords
-    Shot, Grind, Menu,
+    Shot,
+    Grind,
+    Menu,
 
-    // ── Schema Keywords 
+    // ── Schema Keywords
     DataType(DataType),
     Constraint(Constraint),
     Flex,
     On,
     As,
 
-    // ── Sort Direction 
-    Asc, Desc,
+    // ── Sort Direction
+    Asc,
+    Desc,
 
     // ── Built-in Functions
-    FnUuid, FnNow, FnToday,
-    FnCount, FnSum, FnAvg, FnMax, FnMin,
+    FnUuid,
+    FnNow,
+    FnToday,
+    FnCount,
+    FnSum,
+    FnAvg,
+    FnMax,
+    FnMin,
 
     // ── Special Methods
-    MethodNear, MethodLike, MethodHas,
-    MethodLast, MethodThreshold,
+    MethodNear,
+    MethodLike,
+    MethodHas,
+    MethodLast,
+    MethodThreshold,
 
-    // ── Exists 
+    // ── Exists
     Exists,
 
-    // ── Symbols 
-    Dot, Comma, Colon,
-    LParen, RParen,
-    LBrace, RBrace,
-    LBracket, RBracket,
+    // ── Symbols
+    Dot,
+    Comma,
+    Colon,
+    LParen,
+    RParen,
+    LBrace,
+    RBrace,
+    LBracket,
+    RBracket,
 
     // ── Operators
-    Eq, NotEq, Gt, Lt, Gte, Lte,
-    Or, Bang, Pipe,
+    Eq,
+    NotEq,
+    Gt,
+    Lt,
+    Gte,
+    Lte,
+    Or,
+    Bang,
+    Pipe,
 
     // ── Special
     Wildcard, // *

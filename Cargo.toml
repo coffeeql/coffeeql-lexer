@@ -1,0 +1,14 @@
+[package]
+name    = "coffeeql-lexer"
+version = "0.1.0"
+edition = "2021"
+description = "The tokenizer for CoffeeQL — converts raw query strings into a typed token stream"
+license = "Apache-2.0"
+repository = "https://github.com/coffeeql/coffeeql-lexer"
+
+[dependencies]
+logos     = "0.16.1"
+thiserror = "2.0.18"
+
+[dev-dependencies]
+# nothing extra needed for tests

@@ -16,4 +16,4 @@ By making a contribution to CoffeeQL, you agree to the following terms:
    to the best of your knowledge.
 
 By commenting "I have read the CLA Document and I hereby sign the CLA"
-on a pull request, you agree to these terms.
+on a pull request, you agree to these terms and conditions.
